@@ -1,0 +1,1263 @@
+2025-07-21 19:55:27,074 - INFO - ============================================================
+2025-07-21 19:55:27,076 - INFO - SEMANTIC GEOMETRY ANALYSIS - ENVIRONMENT SETUP
+2025-07-21 19:55:27,077 - INFO - ============================================================
+2025-07-21 19:55:27,081 - INFO - Python version: 3.12.3 | packaged by conda-forge | (main, Apr 15 2024, 18:20:11) [MSC v.1938 64 bit (AMD64)]
+2025-07-21 19:55:27,082 - INFO - NumPy version: 1.26.4
+2025-07-21 19:55:27,084 - INFO - Pandas version: 2.3.0
+2025-07-21 19:55:27,085 - INFO - PyTorch version: 2.7.0+cpu
+2025-07-21 19:55:27,091 - INFO - Transformers version: 4.41.0
+2025-07-21 19:55:27,093 - INFO - CUDA available: False
+2025-07-21 19:55:27,095 - INFO - Random seed set to: 42
+2025-07-21 19:55:27,097 - INFO - Loading dataset from: StimulusList.csv
+2025-07-21 19:55:27,151 - INFO - Dataset loaded successfully: 3520 characters
+2025-07-21 19:55:27,152 - INFO - Columns available: ['hanzi', 'pinyin', 'radical', 'english_consensus', 'zipf_cn', 'zipf_en', 'concreteness_en']
+2025-07-21 19:55:27,153 - INFO - Cleaning radical annotations...
+2025-07-21 19:55:27,165 - INFO - Radical cleaning results:
+2025-07-21 19:55:27,166 - INFO -   Original unique radicals: 207
+2025-07-21 19:55:27,167 - INFO -   Cleaned unique radicals: 203
+2025-07-21 19:55:27,169 - INFO -   Null/invalid radicals: 0
+2025-07-21 19:55:27,176 - INFO - All hanzi entries validated as Chinese characters
+2025-07-21 19:55:27,178 - INFO - ========================================
+2025-07-21 19:55:27,179 - INFO - DATASET STATISTICS
+2025-07-21 19:55:27,181 - INFO - ========================================
+2025-07-21 19:55:27,182 - INFO - Total characters: 3520
+2025-07-21 19:55:27,185 - INFO - Unique radicals: 203
+2025-07-21 19:55:27,192 - INFO - Chinese frequency (Zipf) - Mean: 1.03, Std: 1.14, Range: [-1.07, 4.58]
+2025-07-21 19:55:27,202 - INFO - Radical family sizes - Min: 1, Max: 90, Median: 7.0
+2025-07-21 19:55:27,203 - INFO - Large radical families (≥10 chars): 81
+2025-07-21 19:55:27,207 - WARNING - zipf_en: 100.0% missing
+2025-07-21 19:55:27,209 - WARNING - concreteness_en: 100.0% missing
+2025-07-21 19:55:27,211 - INFO - Verifying embedding model accessibility...
+2025-07-21 19:55:27,212 - INFO - ✓ distiluse: distiluse-base-multilingual-cased-v2 - accessible
+2025-07-21 19:55:27,213 - INFO - ✓ mpnet: paraphrase-multilingual-mpnet-base-v2 - accessible
+2025-07-21 19:55:27,214 - INFO - Environment initialization complete
+2025-07-21 19:55:27,216 - INFO - Ready for semantic geometry analysis
+2025-07-21 19:55:27,349 - INFO - ============================================================
+2025-07-21 19:55:27,350 - INFO - COMPREHENSIVE EMBEDDING COMPUTATION
+2025-07-21 19:55:27,351 - INFO - ============================================================
+2025-07-21 19:55:27,353 - INFO - Using CPU for computation
+2025-07-21 19:55:27,354 - INFO - EmbeddingProcessor initialized on device: cpu
+2025-07-21 19:55:27,359 - INFO - Input prepared:
+2025-07-21 19:55:27,360 - INFO -   Chinese characters: 3520
+2025-07-21 19:55:27,362 - INFO -   English translations: 3520
+2025-07-21 19:55:27,365 - INFO -   Total texts: 7040
+2025-07-21 19:55:27,367 - INFO - 
+🤖 Processing model: distiluse
+2025-07-21 19:55:27,368 - INFO - ----------------------------------------
+2025-07-21 19:55:27,370 - INFO - Loading model: distiluse-base-multilingual-cased-v2
+2025-07-21 19:55:27,380 - INFO - Load pretrained SentenceTransformer: distiluse-base-multilingual-cased-v2
+2025-07-21 19:55:50,467 - INFO - Model validation passed: 512D embeddings
+2025-07-21 19:55:50,471 - INFO - ✓ Model distiluse loaded successfully
+2025-07-21 19:55:50,476 - INFO - Model loading - distiluse completed:
+2025-07-21 19:55:50,478 - INFO -   Time: 23.11s
+2025-07-21 19:55:50,480 - INFO -   Memory delta: +591.4 MB
+2025-07-21 19:55:50,482 - INFO - Computing embeddings for 7040 texts using distiluse
+2025-07-21 19:57:04,351 - INFO - Embedding computation - distiluse completed:
+2025-07-21 19:57:04,353 - INFO -   Time: 73.87s
+2025-07-21 19:57:04,354 - INFO -   Memory delta: +46.1 MB
+2025-07-21 19:57:04,436 - INFO - Mean pairwise similarity (sample): 0.803
+2025-07-21 19:57:04,437 - INFO - Embedding validation passed for distiluse
+2025-07-21 19:57:04,462 - INFO - Computed (7040, 512) embeddings
+2025-07-21 19:57:04,464 - INFO - Mean embedding norm: 0.742 ± 0.200
+2025-07-21 19:57:04,465 - INFO - 
+🤖 Processing model: mpnet
+2025-07-21 19:57:04,467 - INFO - ----------------------------------------
+2025-07-21 19:57:04,468 - INFO - Loading model: paraphrase-multilingual-mpnet-base-v2
+2025-07-21 19:57:04,480 - INFO - Load pretrained SentenceTransformer: paraphrase-multilingual-mpnet-base-v2
+2025-07-21 19:57:37,619 - INFO - Model validation passed: 768D embeddings
+2025-07-21 19:57:37,620 - INFO - ✓ Model mpnet loaded successfully
+2025-07-21 19:57:37,622 - INFO - Model loading - mpnet completed:
+2025-07-21 19:57:37,623 - INFO -   Time: 33.15s
+2025-07-21 19:57:37,625 - INFO -   Memory delta: +1259.6 MB
+2025-07-21 19:57:37,628 - INFO - Computing embeddings for 7040 texts using mpnet
+2025-07-21 20:00:01,186 - INFO - Embedding computation - mpnet completed:
+2025-07-21 20:00:01,187 - INFO -   Time: 143.56s
+2025-07-21 20:00:01,189 - INFO -   Memory delta: +53.5 MB
+2025-07-21 20:00:01,252 - INFO - Mean pairwise similarity (sample): 0.801
+2025-07-21 20:00:01,254 - INFO - Embedding validation passed for mpnet
+2025-07-21 20:00:01,297 - INFO - Computed (7040, 768) embeddings
+2025-07-21 20:00:01,299 - INFO - Mean embedding norm: 2.310 ± 0.670
+2025-07-21 20:00:01,301 - INFO - 
+🔍 CROSS-MODEL VALIDATION
+2025-07-21 20:00:01,303 - INFO - ------------------------------
+2025-07-21 20:00:38,311 - INFO - distiluse vs mpnet:
+2025-07-21 20:00:38,316 - INFO -   Chinese representational similarity: 0.309
+2025-07-21 20:00:38,322 - INFO -   English representational similarity: 0.531
+2025-07-21 20:00:39,370 - INFO - Saved distiluse embeddings to embeddings_cache\embeddings_distiluse_2025-07-21T19-55-27.097143.npz
+2025-07-21 20:00:40,564 - INFO - Saved mpnet embeddings to embeddings_cache\embeddings_mpnet_2025-07-21T19-55-27.097143.npz
+2025-07-21 20:00:40,567 - INFO - 
+✅ Embedding computation completed successfully
+2025-07-21 20:00:40,569 - INFO - 
+📊 EMBEDDING QUALITY ASSESSMENT
+2025-07-21 20:00:40,571 - INFO - ========================================
+2025-07-21 20:00:40,572 - INFO - 
+Assessing distiluse...
+2025-07-21 20:00:41,947 - INFO -   Mean norm: CN=0.577, EN=0.907
+2025-07-21 20:00:41,950 - INFO -   Mean cosine similarity: CN=0.738, EN=0.362
+2025-07-21 20:00:41,952 - INFO -   Cross-lingual similarity: 0.583
+2025-07-21 20:00:41,954 - INFO -   Effective rank: CN=273.4, EN=340.8
+2025-07-21 20:00:41,955 - INFO - 
+Assessing mpnet...
+2025-07-21 20:00:44,187 - INFO -   Mean norm: CN=1.703, EN=2.917
+2025-07-21 20:00:44,189 - INFO -   Mean cosine similarity: CN=0.714, EN=0.230
+2025-07-21 20:00:44,190 - INFO -   Cross-lingual similarity: 0.559
+2025-07-21 20:00:44,193 - INFO -   Effective rank: CN=253.2, EN=399.8
+2025-07-21 20:00:44,860 - INFO - SemanticDensityAnalyzer initialized
+2025-07-21 20:00:44,861 - INFO - Analysis radii: 17 values from 0.10 to 0.90
+2025-07-21 20:00:44,862 - INFO - 
+🌍 CROSS-LINGUISTIC SEMANTIC DENSITY ANALYSIS
+2025-07-21 20:00:44,864 - INFO - ============================================================
+2025-07-21 20:00:44,866 - INFO - 
+📊 Analyzing model: distiluse
+2025-07-21 20:00:44,869 - INFO - Computing multiscale density for distiluse_chinese
+2025-07-21 20:00:44,870 - INFO -   Input shape: (3520, 512)
+2025-07-21 20:00:44,872 - INFO -   Computing distance matrix...
+2025-07-21 20:00:45,862 - INFO -   Density computation completed: (17, 3520)
+2025-07-21 20:00:45,887 - INFO - Computing multiscale density for distiluse_english
+2025-07-21 20:00:45,889 - INFO -   Input shape: (3520, 512)
+2025-07-21 20:00:45,890 - INFO -   Computing distance matrix...
+2025-07-21 20:00:46,961 - INFO -   Density computation completed: (17, 3520)
+2025-07-21 20:00:46,976 - INFO -   Performing statistical analysis...
+2025-07-21 20:01:02,420 - INFO -   📈 Density Analysis Summary (distiluse):
+2025-07-21 20:01:02,422 - INFO -     Mean density ratio (CN/EN): 65.00×
+2025-07-21 20:01:02,423 - INFO -     Ratio range: 1.03× - 460.35×
+2025-07-21 20:01:02,425 - INFO -     Mean effect size (Cohen's d): 2.95
+2025-07-21 20:01:02,426 - INFO -     Significant comparisons (p<0.001): 17/17
+2025-07-21 20:01:02,428 - INFO - 
+📊 Analyzing model: mpnet
+2025-07-21 20:01:02,429 - INFO - Computing multiscale density for mpnet_chinese
+2025-07-21 20:01:02,430 - INFO -   Input shape: (3520, 768)
+2025-07-21 20:01:02,434 - INFO -   Computing distance matrix...
+2025-07-21 20:01:03,634 - INFO -   Density computation completed: (17, 3520)
+2025-07-21 20:01:03,656 - INFO - Computing multiscale density for mpnet_english
+2025-07-21 20:01:03,657 - INFO -   Input shape: (3520, 768)
+2025-07-21 20:01:03,660 - INFO -   Computing distance matrix...
+2025-07-21 20:01:04,993 - INFO -   Density computation completed: (17, 3520)
+2025-07-21 20:01:05,008 - INFO -   Performing statistical analysis...
+2025-07-21 20:01:20,479 - INFO -   📈 Density Analysis Summary (mpnet):
+2025-07-21 20:01:20,481 - INFO -     Mean density ratio (CN/EN): 288.61×
+2025-07-21 20:01:20,483 - INFO -     Ratio range: 1.11× - 1041.28×
+2025-07-21 20:01:20,485 - INFO -     Mean effect size (Cohen's d): 4.94
+2025-07-21 20:01:20,487 - INFO -     Significant comparisons (p<0.001): 17/17
+2025-07-21 20:01:20,490 - INFO - Creating Figure 1: Semantic Density Profiles
+2025-07-21 20:01:28,029 - INFO - ✅ Figure 1 created and saved
+2025-07-21 20:01:28,043 - INFO - Creating Table 2: Density Statistics
+2025-07-21 20:01:28,995 - INFO - Radical family statistics:
+2025-07-21 20:01:28,996 - INFO -   Total families found: 203
+2025-07-21 20:01:28,997 - INFO -   Valid families (≥2 chars): 185
+2025-07-21 20:01:28,999 - INFO -   Family size range: 2 - 90
+2025-07-21 20:01:29,001 - INFO -   Mean family size: 18.9
+2025-07-21 20:01:29,003 - INFO - RadicalCohesionAnalyzer initialized
+2025-07-21 20:01:29,005 - INFO - Valid radical families: 185
+2025-07-21 20:01:29,007 - INFO - Total characters in analysis: 3502
+2025-07-21 20:01:29,009 - INFO - 
+🎯 COMPREHENSIVE RADICAL COHESION ANALYSIS
+2025-07-21 20:01:29,011 - INFO - ============================================================
+2025-07-21 20:01:29,013 - INFO - 
+📊 Analyzing model: distiluse
+2025-07-21 20:01:29,015 - INFO - Computing radical cohesion for distiluse
+2025-07-21 20:01:29,393 - INFO - Cohesion computed for 185 radical families
+2025-07-21 20:01:29,402 - INFO -   📈 Cohesion Summary (distiluse):
+2025-07-21 20:01:29,403 - INFO -     Families analyzed: 185
+2025-07-21 20:01:29,404 - INFO -     Mean cohesion: 4.284 ± 1.487
+2025-07-21 20:01:29,406 - INFO -     Median cohesion: 3.988
+2025-07-21 20:01:29,407 - INFO -     Range: 1.766 - 13.893
+2025-07-21 20:01:29,409 - INFO -     Coefficient of variation: 0.347
+2025-07-21 20:01:29,410 - INFO - 
+📊 Analyzing model: mpnet
+2025-07-21 20:01:29,412 - INFO - Computing radical cohesion for mpnet
+2025-07-21 20:01:29,843 - INFO - Cohesion computed for 185 radical families
+2025-07-21 20:01:29,856 - INFO -   📈 Cohesion Summary (mpnet):
+2025-07-21 20:01:29,859 - INFO -     Families analyzed: 185
+2025-07-21 20:01:29,861 - INFO -     Mean cohesion: 4.664 ± 2.845
+2025-07-21 20:01:29,862 - INFO -     Median cohesion: 4.185
+2025-07-21 20:01:29,864 - INFO -     Range: 1.768 - 27.477
+2025-07-21 20:01:29,868 - INFO -     Coefficient of variation: 0.610
+2025-07-21 20:01:29,869 - INFO - 
+🔍 Cross-Model Consistency Analysis
+2025-07-21 20:01:29,870 - INFO - Common radicals across models: 185
+2025-07-21 20:01:29,878 - INFO -   distiluse vs mpnet:
+2025-07-21 20:01:29,880 - INFO -     Pearson r: 0.312 (p=0.000)
+2025-07-21 20:01:29,883 - INFO -     Spearman ρ: 0.558 (p=0.000)
+2025-07-21 20:01:29,886 - INFO - 
+🏆 TOP 20 COHESIVE RADICAL FAMILIES (DISTILUSE)
+2025-07-21 20:01:29,887 - INFO - ======================================================================
+2025-07-21 20:01:29,894 - INFO - 
+🏅 #1 - Radical 176 (Unknown meaning)
+2025-07-21 20:01:29,895 - INFO -    📊 Cohesion: 13.893 | Characters: 2 | Distance: 0.072
+2025-07-21 20:01:29,901 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:29,934 - INFO -    📈 Frequency: 1.33 (range: -0.5-3.2)
+2025-07-21 20:01:29,939 - INFO -    🔤 Characters: 面靥
+2025-07-21 20:01:29,942 - INFO -    🌍 Meanings: flour, dimple
+2025-07-21 20:01:29,943 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:29,952 - INFO - 
+🏅 #2 - Radical 56 (Unknown meaning)
+2025-07-21 20:01:29,953 - INFO -    📊 Cohesion: 11.746 | Characters: 3 | Distance: 0.085
+2025-07-21 20:01:29,956 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:29,958 - INFO -    📈 Frequency: 0.40 (range: -0.9-2.4)
+2025-07-21 20:01:29,960 - INFO -    🔤 Characters: 弋式弑
+2025-07-21 20:01:29,962 - INFO -    🌍 Meanings: to shoot, type, murder a superior
+2025-07-21 20:01:29,964 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:29,971 - INFO - 
+🏅 #3 - Radical 81 (Unknown meaning)
+2025-07-21 20:01:29,973 - INFO -    📊 Cohesion: 10.461 | Characters: 5 | Distance: 0.096
+2025-07-21 20:01:29,975 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:29,977 - INFO -    📈 Frequency: 0.98 (range: -1.0-3.0)
+2025-07-21 20:01:29,979 - INFO -    🔤 Characters: 比毕毖毗毙
+2025-07-21 20:01:29,980 - INFO -    🌍 Meanings: associate with, the whole of, careful, adjoin, die violently
+2025-07-21 20:01:29,983 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:29,993 - INFO - 
+🏅 #4 - Radical 127 (Unknown meaning)
+2025-07-21 20:01:29,994 - INFO -    📊 Cohesion: 9.107 | Characters: 5 | Distance: 0.110
+2025-07-21 20:01:29,996 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:29,999 - INFO -    📈 Frequency: 0.09 (range: -0.7-1.2)
+2025-07-21 20:01:30,008 - INFO -    🔤 Characters: 耕耗耘耙耦
+2025-07-21 20:01:30,010 - INFO -    🌍 Meanings: to plow, mouse, to weed, a rake, pair
+2025-07-21 20:01:30,013 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,021 - INFO - 
+🏅 #5 - Radical 211 (Unknown meaning)
+2025-07-21 20:01:30,022 - INFO -    📊 Cohesion: 7.795 | Characters: 10 | Distance: 0.128
+2025-07-21 20:01:30,024 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,025 - INFO -    📈 Frequency: -0.08 (range: -1.1-1.5)
+2025-07-21 20:01:30,028 - INFO -    🔤 Characters: 齿龃龄龅龇龈龉龊龋龌
+2025-07-21 20:01:30,029 - INFO -    🌍 Meanings: tooth, irregular, age, projecting teeth, projecting teeth...
+2025-07-21 20:01:30,031 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.20)
+2025-07-21 20:01:30,039 - INFO - 
+🏅 #6 - Radical 133 (Unknown meaning)
+2025-07-21 20:01:30,041 - INFO -    📊 Cohesion: 7.289 | Characters: 3 | Distance: 0.137
+2025-07-21 20:01:30,043 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,045 - INFO -    📈 Frequency: 1.45 (range: -0.4-2.6)
+2025-07-21 20:01:30,047 - INFO -    🔤 Characters: 至致臻
+2025-07-21 20:01:30,050 - INFO -    🌍 Meanings: arrive, to send, to reach
+2025-07-21 20:01:30,051 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,057 - INFO - 
+🏅 #7 - Radical 198 (Unknown meaning)
+2025-07-21 20:01:30,058 - INFO -    📊 Cohesion: 7.272 | Characters: 6 | Distance: 0.138
+2025-07-21 20:01:30,059 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,060 - INFO -    📈 Frequency: -0.20 (range: -1.0-1.2)
+2025-07-21 20:01:30,061 - INFO -    🔤 Characters: 鹿麂麒麓麝麟
+2025-07-21 20:01:30,064 - INFO -    🌍 Meanings: deer, Moschus chinensis, mythical unicorn, foot of a hill, musk deer...
+2025-07-21 20:01:30,068 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,072 - INFO - 
+🏅 #8 - Radical 88 (Unknown meaning)
+2025-07-21 20:01:30,074 - INFO -    📊 Cohesion: 7.179 | Characters: 4 | Distance: 0.139
+2025-07-21 20:01:30,076 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,077 - INFO -    📈 Frequency: 2.28 (range: 1.4-3.1)
+2025-07-21 20:01:30,079 - INFO -    🔤 Characters: 父爷爸爹
+2025-07-21 20:01:30,081 - INFO -    🌍 Meanings: father, grandpa, father, dad
+2025-07-21 20:01:30,083 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.25)
+2025-07-21 20:01:30,088 - INFO - 
+🏅 #9 - Radical 25 (Unknown meaning)
+2025-07-21 20:01:30,091 - INFO -    📊 Cohesion: 6.882 | Characters: 6 | Distance: 0.145
+2025-07-21 20:01:30,092 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,093 - INFO -    📈 Frequency: 1.34 (range: -0.1-2.6)
+2025-07-21 20:01:30,095 - INFO -    🔤 Characters: 卜占卡卤卦卧
+2025-07-21 20:01:30,096 - INFO -    🌍 Meanings: to divine, to occupy, customs station, crass, divinatory trigram...
+2025-07-21 20:01:30,098 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,104 - INFO - 
+🏅 #10 - Radical 195 (Unknown meaning)
+2025-07-21 20:01:30,105 - INFO -    📊 Cohesion: 6.726 | Characters: 32 | Distance: 0.149
+2025-07-21 20:01:30,106 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,108 - INFO -    📈 Frequency: 0.07 (range: -1.1-2.2)
+2025-07-21 20:01:30,109 - INFO -    🔤 Characters: 鱼鱿鲁鲈鲍鲔鲛鲜鲟鲡... (+22 more)
+2025-07-21 20:01:30,111 - INFO -    🌍 Meanings: fish, cuttlefish, crass, common perch, abalone...
+2025-07-21 20:01:30,112 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.06)
+2025-07-21 20:01:30,119 - INFO - 
+🏅 #11 - Radical 165 (Unknown meaning)
+2025-07-21 20:01:30,120 - INFO -    📊 Cohesion: 6.500 | Characters: 3 | Distance: 0.154
+2025-07-21 20:01:30,121 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,122 - INFO -    📈 Frequency: 1.18 (range: -0.6-2.3)
+2025-07-21 20:01:30,124 - INFO -    🔤 Characters: 采釉释
+2025-07-21 20:01:30,125 - INFO -    🌍 Meanings: allotment to a feudal noble, glaze (of porcelain), explain
+2025-07-21 20:01:30,127 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,132 - INFO - 
+🏅 #12 - Radical 67 (Unknown meaning)
+2025-07-21 20:01:30,134 - INFO -    📊 Cohesion: 6.255 | Characters: 5 | Distance: 0.160
+2025-07-21 20:01:30,136 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,137 - INFO -    📈 Frequency: 0.59 (range: -0.6-2.5)
+2025-07-21 20:01:30,139 - INFO -    🔤 Characters: 文斋斌斑斓
+2025-07-21 20:01:30,140 - INFO -    🌍 Meanings: language, a fast, ornamental, variegated, variegated
+2025-07-21 20:01:30,143 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.20)
+2025-07-21 20:01:30,147 - INFO - 
+🏅 #13 - Radical 186 (Unknown meaning)
+2025-07-21 20:01:30,150 - INFO -    📊 Cohesion: 6.201 | Characters: 3 | Distance: 0.161
+2025-07-21 20:01:30,151 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,153 - INFO -    📈 Frequency: 0.73 (range: -0.7-2.1)
+2025-07-21 20:01:30,155 - INFO -    🔤 Characters: 香馥馨
+2025-07-21 20:01:30,156 - INFO -    🌍 Meanings: fragrant, fragrance, scent, aroma, fragrant
+2025-07-21 20:01:30,157 - INFO -    🧠 Coherence: Moderate coherence - related concepts (score: 0.33)
+2025-07-21 20:01:30,162 - INFO - 
+🏅 #14 - Radical 202 (Unknown meaning)
+2025-07-21 20:01:30,163 - INFO -    📊 Cohesion: 6.081 | Characters: 2 | Distance: 0.164
+2025-07-21 20:01:30,166 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,168 - INFO -    📈 Frequency: -0.04 (range: -0.7-0.6)
+2025-07-21 20:01:30,170 - INFO -    🔤 Characters: 黍黏
+2025-07-21 20:01:30,171 - INFO -    🌍 Meanings: broomcorn millet, sticky
+2025-07-21 20:01:30,173 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,178 - INFO - 
+🏅 #15 - 丨 (vertical line)
+2025-07-21 20:01:30,180 - INFO -    📊 Cohesion: 6.006 | Characters: 5 | Distance: 0.167
+2025-07-21 20:01:30,184 - INFO -    🏷️  Category: strokes
+2025-07-21 20:01:30,186 - INFO -    📈 Frequency: 1.76 (range: 1.0-3.2)
+2025-07-21 20:01:30,188 - INFO -    🔤 Characters: 丫中丰串临
+2025-07-21 20:01:30,190 - INFO -    🌍 Meanings: slave girl, hit (the mark), buxom, to string together, to face
+2025-07-21 20:01:30,191 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,197 - INFO - 
+🏅 #16 - Radical 187 (Unknown meaning)
+2025-07-21 20:01:30,198 - INFO -    📊 Cohesion: 5.794 | Characters: 32 | Distance: 0.173
+2025-07-21 20:01:30,201 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,203 - INFO -    📈 Frequency: 0.67 (range: -1.1-2.9)
+2025-07-21 20:01:30,209 - INFO -    🔤 Characters: 马驭驮驯驰驱驳驴驶驷... (+22 more)
+2025-07-21 20:01:30,218 - INFO -    🌍 Meanings: horse, manage, carry on back, attain gradually, run fast...
+2025-07-21 20:01:30,231 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.03)
+2025-07-21 20:01:30,252 - INFO - 
+🏅 #17 - Radical 129 (Unknown meaning)
+2025-07-21 20:01:30,253 - INFO -    📊 Cohesion: 5.749 | Characters: 4 | Distance: 0.174
+2025-07-21 20:01:30,255 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,256 - INFO -    📈 Frequency: 0.41 (range: -1.0-1.3)
+2025-07-21 20:01:30,259 - INFO -    🔤 Characters: 肃肄肆肇
+2025-07-21 20:01:30,261 - INFO -    🌍 Meanings: Gansu, descendants, four (fraud-proof), at first
+2025-07-21 20:01:30,263 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,271 - INFO - 
+🏅 #18 - Radical 190 (Unknown meaning)
+2025-07-21 20:01:30,273 - INFO -    📊 Cohesion: 5.728 | Characters: 7 | Distance: 0.175
+2025-07-21 20:01:30,275 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,277 - INFO -    📈 Frequency: -0.39 (range: -1.1-0.8)
+2025-07-21 20:01:30,279 - INFO -    🔤 Characters: 髦髭髯髻鬃鬓鬣
+2025-07-21 20:01:30,281 - INFO -    🌍 Meanings: bang (hair), mustache, beard, hair rolled up in a bun, topknot, bristles...
+2025-07-21 20:01:30,284 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.14)
+2025-07-21 20:01:30,292 - INFO - 
+🏅 #19 - Radical 97 (Unknown meaning)
+2025-07-21 20:01:30,295 - INFO -    📊 Cohesion: 5.634 | Characters: 4 | Distance: 0.177
+2025-07-21 20:01:30,297 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,299 - INFO -    📈 Frequency: 0.40 (range: -0.9-1.8)
+2025-07-21 20:01:30,301 - INFO -    🔤 Characters: 瓜瓢瓣瓤
+2025-07-21 20:01:30,303 - INFO -    🌍 Meanings: melon, dipper, petal, pulp of fruit
+2025-07-21 20:01:30,305 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,322 - INFO - 
+🏅 #20 - 山 (mountain, hill)
+2025-07-21 20:01:30,324 - INFO -    📊 Cohesion: 5.614 | Characters: 41 | Distance: 0.178
+2025-07-21 20:01:30,327 - INFO -    🏷️  Category: nature
+2025-07-21 20:01:30,329 - INFO -    📈 Frequency: 0.42 (range: -0.9-2.4)
+2025-07-21 20:01:30,331 - INFO -    🔤 Characters: 山屹屿岁岂岌岐岑岔岖... (+31 more)
+2025-07-21 20:01:30,335 - INFO -    🌍 Meanings: mountain, high and steep, islet, year, how can it be that...
+2025-07-21 20:01:30,337 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.15)
+2025-07-21 20:01:30,340 - INFO - 
+🏆 TOP 20 COHESIVE RADICAL FAMILIES (MPNET)
+2025-07-21 20:01:30,342 - INFO - ======================================================================
+2025-07-21 20:01:30,349 - INFO - 
+🏅 #1 - Radical 125 (Unknown meaning)
+2025-07-21 20:01:30,351 - INFO -    📊 Cohesion: 27.477 | Characters: 2 | Distance: 0.036
+2025-07-21 20:01:30,355 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,356 - INFO -    📈 Frequency: 0.71 (range: -1.0-2.4)
+2025-07-21 20:01:30,358 - INFO -    🔤 Characters: 考耆
+2025-07-21 20:01:30,359 - INFO -    🌍 Meanings: to check, man of sixty or seventy
+2025-07-21 20:01:30,361 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,366 - INFO - 
+🏅 #2 - Radical 133 (Unknown meaning)
+2025-07-21 20:01:30,370 - INFO -    📊 Cohesion: 23.816 | Characters: 3 | Distance: 0.042
+2025-07-21 20:01:30,372 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,374 - INFO -    📈 Frequency: 1.45 (range: -0.4-2.6)
+2025-07-21 20:01:30,375 - INFO -    🔤 Characters: 至致臻
+2025-07-21 20:01:30,377 - INFO -    🌍 Meanings: arrive, to send, to reach
+2025-07-21 20:01:30,379 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,388 - INFO - 
+🏅 #3 - Radical 129 (Unknown meaning)
+2025-07-21 20:01:30,389 - INFO -    📊 Cohesion: 18.742 | Characters: 4 | Distance: 0.053
+2025-07-21 20:01:30,392 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,394 - INFO -    📈 Frequency: 0.41 (range: -1.0-1.3)
+2025-07-21 20:01:30,395 - INFO -    🔤 Characters: 肃肄肆肇
+2025-07-21 20:01:30,397 - INFO -    🌍 Meanings: Gansu, descendants, four (fraud-proof), at first
+2025-07-21 20:01:30,400 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,405 - INFO - 
+🏅 #4 - Radical 208 (Unknown meaning)
+2025-07-21 20:01:30,407 - INFO -    📊 Cohesion: 10.764 | Characters: 3 | Distance: 0.093
+2025-07-21 20:01:30,408 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,410 - INFO -    📈 Frequency: 0.76 (range: 0.2-1.7)
+2025-07-21 20:01:30,412 - INFO -    🔤 Characters: 鼠鼬鼹
+2025-07-21 20:01:30,413 - INFO -    🌍 Meanings: rat, weasel, mustela itatis, mole
+2025-07-21 20:01:30,415 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,421 - INFO - 
+🏅 #5 - Radical 186 (Unknown meaning)
+2025-07-21 20:01:30,424 - INFO -    📊 Cohesion: 9.816 | Characters: 3 | Distance: 0.102
+2025-07-21 20:01:30,425 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,428 - INFO -    📈 Frequency: 0.73 (range: -0.7-2.1)
+2025-07-21 20:01:30,429 - INFO -    🔤 Characters: 香馥馨
+2025-07-21 20:01:30,432 - INFO -    🌍 Meanings: fragrant, fragrance, scent, aroma, fragrant
+2025-07-21 20:01:30,434 - INFO -    🧠 Coherence: Moderate coherence - related concepts (score: 0.33)
+2025-07-21 20:01:30,442 - INFO - 
+🏅 #6 - 見 (see, look)
+2025-07-21 20:01:30,443 - INFO -    📊 Cohesion: 9.173 | Characters: 9 | Distance: 0.109
+2025-07-21 20:01:30,445 - INFO -    🏷️  Category: perception
+2025-07-21 20:01:30,448 - INFO -    📈 Frequency: 1.37 (range: -0.5-3.3)
+2025-07-21 20:01:30,450 - INFO -    🔤 Characters: 见观规觅览觉觊觎觑
+2025-07-21 20:01:30,451 - INFO -    🌍 Meanings: appear, Taoist monastery, compass, seek, look over...
+2025-07-21 20:01:30,452 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,462 - INFO - 
+🏅 #7 - Radical 176 (Unknown meaning)
+2025-07-21 20:01:30,464 - INFO -    📊 Cohesion: 7.745 | Characters: 2 | Distance: 0.129
+2025-07-21 20:01:30,467 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,468 - INFO -    📈 Frequency: 1.33 (range: -0.5-3.2)
+2025-07-21 20:01:30,469 - INFO -    🔤 Characters: 面靥
+2025-07-21 20:01:30,472 - INFO -    🌍 Meanings: flour, dimple
+2025-07-21 20:01:30,475 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,482 - INFO - 
+🏅 #8 - Radical 56 (Unknown meaning)
+2025-07-21 20:01:30,484 - INFO -    📊 Cohesion: 7.613 | Characters: 3 | Distance: 0.131
+2025-07-21 20:01:30,486 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,489 - INFO -    📈 Frequency: 0.40 (range: -0.9-2.4)
+2025-07-21 20:01:30,490 - INFO -    🔤 Characters: 弋式弑
+2025-07-21 20:01:30,493 - INFO -    🌍 Meanings: to shoot, type, murder a superior
+2025-07-21 20:01:30,503 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,510 - INFO - 
+🏅 #9 - Radical 35 (Unknown meaning)
+2025-07-21 20:01:30,512 - INFO -    📊 Cohesion: 7.586 | Characters: 2 | Distance: 0.132
+2025-07-21 20:01:30,516 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,518 - INFO -    📈 Frequency: 2.17 (range: 1.9-2.4)
+2025-07-21 20:01:30,519 - INFO -    🔤 Characters: 复夏
+2025-07-21 20:01:30,522 - INFO -    🌍 Meanings: again, summer
+2025-07-21 20:01:30,524 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,529 - INFO - 
+🏅 #10 - Radical 34 (Unknown meaning)
+2025-07-21 20:01:30,530 - INFO -    📊 Cohesion: 7.549 | Characters: 2 | Distance: 0.132
+2025-07-21 20:01:30,533 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,535 - INFO -    📈 Frequency: 2.78 (range: 2.8-2.8)
+2025-07-21 20:01:30,537 - INFO -    🔤 Characters: 处备
+2025-07-21 20:01:30,539 - INFO -    🌍 Meanings: a place, to prepare
+2025-07-21 20:01:30,541 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,548 - INFO - 
+🏅 #11 - 丨 (vertical line)
+2025-07-21 20:01:30,552 - INFO -    📊 Cohesion: 7.513 | Characters: 5 | Distance: 0.133
+2025-07-21 20:01:30,553 - INFO -    🏷️  Category: strokes
+2025-07-21 20:01:30,555 - INFO -    📈 Frequency: 1.76 (range: 1.0-3.2)
+2025-07-21 20:01:30,558 - INFO -    🔤 Characters: 丫中丰串临
+2025-07-21 20:01:30,559 - INFO -    🌍 Meanings: slave girl, hit (the mark), buxom, to string together, to face
+2025-07-21 20:01:30,561 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,569 - INFO - 
+🏅 #12 - Radical 117 (Unknown meaning)
+2025-07-21 20:01:30,571 - INFO -    📊 Cohesion: 7.409 | Characters: 6 | Distance: 0.135
+2025-07-21 20:01:30,572 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,575 - INFO -    📈 Frequency: 1.45 (range: -0.8-2.5)
+2025-07-21 20:01:30,576 - INFO -    🔤 Characters: 立站竞竣竭端
+2025-07-21 20:01:30,579 - INFO -    🌍 Meanings: set up, station, to compete, complete, exhaust...
+2025-07-21 20:01:30,581 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,588 - INFO - 
+🏅 #13 - Radical 68 (Unknown meaning)
+2025-07-21 20:01:30,589 - INFO -    📊 Cohesion: 7.199 | Characters: 5 | Distance: 0.139
+2025-07-21 20:01:30,591 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,593 - INFO -    📈 Frequency: 1.02 (range: -0.4-2.3)
+2025-07-21 20:01:30,594 - INFO -    🔤 Characters: 斗料斜斟斡
+2025-07-21 20:01:30,596 - INFO -    🌍 Meanings: fight, material, slanting, pour, to turn
+2025-07-21 20:01:30,597 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,605 - INFO - 
+🏅 #14 - Radical 95 (Unknown meaning)
+2025-07-21 20:01:30,607 - INFO -    📊 Cohesion: 7.105 | Characters: 3 | Distance: 0.141
+2025-07-21 20:01:30,608 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,610 - INFO -    📈 Frequency: 0.67 (range: -0.4-1.8)
+2025-07-21 20:01:30,613 - INFO -    🔤 Characters: 玄玆率
+2025-07-21 20:01:30,617 - INFO -    🌍 Meanings: black, now, here, to lead
+2025-07-21 20:01:30,619 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,624 - INFO - 
+🏅 #15 - Radical 43 (Unknown meaning)
+2025-07-21 20:01:30,628 - INFO -    📊 Cohesion: 7.043 | Characters: 4 | Distance: 0.142
+2025-07-21 20:01:30,631 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,634 - INFO -    📈 Frequency: 2.11 (range: 1.4-3.8)
+2025-07-21 20:01:30,637 - INFO -    🔤 Characters: 尤尬就尴
+2025-07-21 20:01:30,640 - INFO -    🌍 Meanings: outstanding, in an embarrassing situation, at once, embarrassed
+2025-07-21 20:01:30,645 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,663 - INFO - 
+🏅 #16 - Radical 107 (Unknown meaning)
+2025-07-21 20:01:30,668 - INFO -    📊 Cohesion: 6.894 | Characters: 2 | Distance: 0.145
+2025-07-21 20:01:30,670 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,672 - INFO -    📈 Frequency: 1.63 (range: 1.0-2.3)
+2025-07-21 20:01:30,674 - INFO -    🔤 Characters: 皮皱
+2025-07-21 20:01:30,676 - INFO -    🌍 Meanings: leather, to wrinkle
+2025-07-21 20:01:30,678 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,688 - INFO - 
+🏅 #17 - Radical 67 (Unknown meaning)
+2025-07-21 20:01:30,690 - INFO -    📊 Cohesion: 6.765 | Characters: 5 | Distance: 0.148
+2025-07-21 20:01:30,713 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,716 - INFO -    📈 Frequency: 0.59 (range: -0.6-2.5)
+2025-07-21 20:01:30,718 - INFO -    🔤 Characters: 文斋斌斑斓
+2025-07-21 20:01:30,719 - INFO -    🌍 Meanings: language, a fast, ornamental, variegated, variegated
+2025-07-21 20:01:30,721 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.20)
+2025-07-21 20:01:30,726 - INFO - 
+🏅 #18 - Radical 165 (Unknown meaning)
+2025-07-21 20:01:30,727 - INFO -    📊 Cohesion: 6.642 | Characters: 3 | Distance: 0.151
+2025-07-21 20:01:30,732 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,738 - INFO -    📈 Frequency: 1.18 (range: -0.6-2.3)
+2025-07-21 20:01:30,741 - INFO -    🔤 Characters: 采釉释
+2025-07-21 20:01:30,743 - INFO -    🌍 Meanings: allotment to a feudal noble, glaze (of porcelain), explain
+2025-07-21 20:01:30,744 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,753 - INFO - 
+🏅 #19 - Radical 37 (Unknown meaning)
+2025-07-21 20:01:30,755 - INFO -    📊 Cohesion: 6.563 | Characters: 28 | Distance: 0.152
+2025-07-21 20:01:30,757 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,759 - INFO -    📈 Frequency: 1.71 (range: 0.0-3.5)
+2025-07-21 20:01:30,760 - INFO -    🔤 Characters: 大天太夫夭央失头夷夸... (+18 more)
+2025-07-21 20:01:30,760 - INFO -    🌍 Meanings: doctor, day, highest, husband, tender...
+2025-07-21 20:01:30,762 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,768 - INFO - 
+🏅 #20 - Radical 54 (Unknown meaning)
+2025-07-21 20:01:30,769 - INFO -    📊 Cohesion: 6.536 | Characters: 3 | Distance: 0.153
+2025-07-21 20:01:30,771 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:01:30,772 - INFO -    📈 Frequency: 1.69 (range: 1.2-2.3)
+2025-07-21 20:01:30,774 - INFO -    🔤 Characters: 延廷建
+2025-07-21 20:01:30,776 - INFO -    🌍 Meanings: to prolong, palace courtyard, to establish
+2025-07-21 20:01:30,778 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:01:30,779 - INFO - 
+📈 FREQUENCY EFFECTS ON RADICAL COHESION
+2025-07-21 20:01:30,780 - INFO - ==================================================
+2025-07-21 20:01:30,784 - INFO - 
+Analyzing frequency effects for distiluse
+2025-07-21 20:01:30,875 - INFO -   Correlation with frequency:
+2025-07-21 20:01:30,876 - INFO -     Pearson r: -0.355 (p=0.000)
+2025-07-21 20:01:30,877 - INFO -     Spearman ρ: -0.433 (p=0.000)
+2025-07-21 20:01:30,880 - INFO -   Cohesion by frequency:
+2025-07-21 20:01:30,881 - INFO -     Low freq: 5.010
+2025-07-21 20:01:30,884 - INFO -     Mid freq: 4.220
+2025-07-21 20:01:30,886 - INFO -     High freq: 3.672
+2025-07-21 20:01:30,888 - INFO - 
+Analyzing frequency effects for mpnet
+2025-07-21 20:01:30,978 - INFO -   Correlation with frequency:
+2025-07-21 20:01:30,979 - INFO -     Pearson r: -0.077 (p=0.297)
+2025-07-21 20:01:30,980 - INFO -     Spearman ρ: -0.071 (p=0.335)
+2025-07-21 20:01:30,983 - INFO -   Cohesion by frequency:
+2025-07-21 20:01:30,985 - INFO -     Low freq: 5.366
+2025-07-21 20:01:30,985 - INFO -     Mid freq: 4.549
+2025-07-21 20:01:30,987 - INFO -     High freq: 4.174
+2025-07-21 20:01:34,896 - INFO - RadicalShufflingExperiment initialized
+2025-07-21 20:01:34,897 - INFO - Original radical families: 185
+2025-07-21 20:01:34,898 - INFO - Characters in analysis: 3502
+2025-07-21 20:01:34,901 - INFO - 
+🔬 RADICAL-SHUFFLING CAUSAL EXPERIMENT
+2025-07-21 20:01:34,903 - INFO - ============================================================
+2025-07-21 20:01:34,904 - INFO - Testing causal relationship: orthographic structure → semantic cohesion
+2025-07-21 20:01:34,906 - INFO - Iterations per model: 5
+2025-07-21 20:01:34,908 - INFO - H0: Cohesion independent of orthographic structure
+2025-07-21 20:01:34,909 - INFO - H1: Orthographic structure causally drives cohesion
+2025-07-21 20:01:34,910 - INFO - 
+🤖 Experimenting with distiluse
+2025-07-21 20:05:10,256 - INFO - RadicalShufflingExperiment initialized
+2025-07-21 20:05:10,258 - INFO - Original radical families: 185
+2025-07-21 20:05:10,260 - INFO - Characters in analysis: 3502
+2025-07-21 20:05:10,262 - INFO - 
+🔬 RADICAL-SHUFFLING CAUSAL EXPERIMENT
+2025-07-21 20:05:10,264 - INFO - ============================================================
+2025-07-21 20:05:10,266 - INFO - Testing causal relationship: orthographic structure → semantic cohesion
+2025-07-21 20:05:10,267 - INFO - Iterations per model: 5
+2025-07-21 20:05:10,270 - INFO - H0: Cohesion independent of orthographic structure
+2025-07-21 20:05:10,274 - INFO - H1: Orthographic structure causally drives cohesion
+2025-07-21 20:05:10,276 - INFO - 
+🤖 Experimenting with distiluse
+2025-07-21 20:05:13,142 - INFO -   📊 Experimental Results (distiluse):
+2025-07-21 20:05:13,144 - INFO -     Iterations completed: 5
+2025-07-21 20:05:13,145 - INFO -     Original cohesion: 4.284
+2025-07-21 20:05:13,147 - INFO -     Shuffled cohesion: 4.029
+2025-07-21 20:05:13,149 - INFO -     Reduction ratio: 0.940
+2025-07-21 20:05:13,151 - INFO -     Mean correlation (orig vs shuffled): -0.061 ± 0.064
+2025-07-21 20:05:13,152 - INFO -     Mean effect size (Cohen's d): 0.218 ± 0.010
+2025-07-21 20:05:13,154 - INFO -     Wilcoxon test: p = 3.125e-02
+2025-07-21 20:05:13,157 - INFO - 
+🤖 Experimenting with mpnet
+2025-07-21 20:05:16,401 - INFO -   📊 Experimental Results (mpnet):
+2025-07-21 20:05:16,403 - INFO -     Iterations completed: 5
+2025-07-21 20:05:16,404 - INFO -     Original cohesion: 4.664
+2025-07-21 20:05:16,405 - INFO -     Shuffled cohesion: 3.750
+2025-07-21 20:05:16,409 - INFO -     Reduction ratio: 0.804
+2025-07-21 20:05:16,410 - INFO -     Mean correlation (orig vs shuffled): 0.019 ± 0.068
+2025-07-21 20:05:16,412 - INFO -     Mean effect size (Cohen's d): 0.441 ± 0.009
+2025-07-21 20:05:16,413 - INFO -     Wilcoxon test: p = 3.125e-02
+2025-07-21 20:05:16,415 - INFO - 
+🎯 EXPERIMENTAL CONCLUSIONS
+2025-07-21 20:05:16,417 - INFO - ----------------------------------------
+2025-07-21 20:05:16,418 - INFO - CAUSAL EVIDENCE: WEAK
+2025-07-21 20:05:16,420 - INFO - Mean cohesion reduction: 87.2%
+2025-07-21 20:05:16,421 - INFO - Mean effect size: 0.33
+2025-07-21 20:05:16,424 - INFO - All models significant: False
+2025-07-21 20:05:16,426 - INFO - Cross-model consistency: True
+2025-07-21 20:05:16,427 - INFO - 
+CONCLUSION: Weak causal evidence: limited orthographic influence
+2025-07-21 20:05:16,613 - INFO - Creating Figure 4: Causal Experiment Results
+2025-07-21 20:05:28,931 - INFO - ✅ Figure 4 created and saved
+2025-07-21 20:05:28,932 - INFO - Creating Table 5: Causal Evidence Statistics
+2025-07-21 20:06:16,707 - INFO - Translation mappings prepared: 3520/3520 characters have valid translations
+2025-07-21 20:06:16,710 - INFO - CrossLinguisticAnalyzer initialized
+2025-07-21 20:06:16,711 - INFO - Chinese characters: 3520
+2025-07-21 20:06:16,712 - INFO - Valid translations: 3520
+2025-07-21 20:06:16,713 - INFO - 
+🌍 CROSS-LINGUISTIC STABILITY ANALYSIS
+2025-07-21 20:06:16,716 - INFO - ============================================================
+2025-07-21 20:06:16,717 - INFO - Testing universality of radical cohesion patterns across writing systems
+2025-07-21 20:06:16,718 - INFO - 
+📊 Analyzing model: distiluse
+2025-07-21 20:08:43,672 - INFO - Translation mappings prepared: 3520/3520 characters have valid translations
+2025-07-21 20:08:43,674 - INFO - CrossLinguisticAnalyzer initialized
+2025-07-21 20:08:43,674 - INFO - Chinese characters: 3520
+2025-07-21 20:08:43,677 - INFO - Valid translations: 3520
+2025-07-21 20:08:43,680 - INFO - 
+🌍 CROSS-LINGUISTIC STABILITY ANALYSIS
+2025-07-21 20:08:43,681 - INFO - ============================================================
+2025-07-21 20:08:43,683 - INFO - Testing universality of radical cohesion patterns across writing systems
+2025-07-21 20:08:43,685 - INFO - 
+📊 Analyzing model: distiluse
+2025-07-21 20:09:20,620 - INFO - Translation mappings prepared: 3520/3520 characters have valid translations
+2025-07-21 20:09:20,622 - INFO - CrossLinguisticAnalyzer initialized
+2025-07-21 20:09:20,623 - INFO - Chinese characters: 3520
+2025-07-21 20:09:20,624 - INFO - Valid translations: 3520
+2025-07-21 20:09:20,626 - INFO - 
+🌍 CROSS-LINGUISTIC STABILITY ANALYSIS
+2025-07-21 20:09:20,627 - INFO - ============================================================
+2025-07-21 20:09:20,630 - INFO - Testing universality of radical cohesion patterns across writing systems
+2025-07-21 20:09:20,632 - INFO - 
+📊 Analyzing model: distiluse
+2025-07-21 20:13:27,125 - INFO - ✅ Verificación de dependencias completada
+2025-07-21 20:13:27,507 - INFO - Translation mappings prepared: 3520/3520 characters have valid translations
+2025-07-21 20:13:27,508 - INFO - CrossLinguisticAnalyzer initialized
+2025-07-21 20:13:27,510 - INFO - Chinese characters: 3520
+2025-07-21 20:13:27,511 - INFO - Valid translations: 3520
+2025-07-21 20:13:27,512 - INFO - 
+🌍 CROSS-LINGUISTIC STABILITY ANALYSIS
+2025-07-21 20:13:27,514 - INFO - ============================================================
+2025-07-21 20:13:27,515 - INFO - Testing universality of radical cohesion patterns across writing systems
+2025-07-21 20:13:27,517 - INFO - 
+📊 Analyzing model: distiluse
+2025-07-21 20:13:27,518 - ERROR - Critical error in cross-linguistic analysis: name 'radical_cohesion_results' is not defined
+2025-07-21 20:17:56,583 - INFO - ============================================================
+2025-07-21 20:17:56,586 - INFO - SEMANTIC GEOMETRY ANALYSIS - ENVIRONMENT SETUP
+2025-07-21 20:17:56,587 - INFO - ============================================================
+2025-07-21 20:17:56,589 - INFO - Python version: 3.12.3 | packaged by conda-forge | (main, Apr 15 2024, 18:20:11) [MSC v.1938 64 bit (AMD64)]
+2025-07-21 20:17:56,591 - INFO - NumPy version: 1.26.4
+2025-07-21 20:17:56,593 - INFO - Pandas version: 2.3.0
+2025-07-21 20:17:56,595 - INFO - PyTorch version: 2.7.0+cpu
+2025-07-21 20:17:56,598 - INFO - Transformers version: 4.41.0
+2025-07-21 20:17:56,600 - INFO - CUDA available: False
+2025-07-21 20:17:56,602 - INFO - Random seed set to: 42
+2025-07-21 20:17:56,605 - INFO - Loading dataset from: StimulusList.csv
+2025-07-21 20:17:56,621 - INFO - Dataset loaded successfully: 3520 characters
+2025-07-21 20:17:56,623 - INFO - Columns available: ['hanzi', 'pinyin', 'radical', 'english_consensus', 'zipf_cn', 'zipf_en', 'concreteness_en']
+2025-07-21 20:17:56,626 - INFO - Cleaning radical annotations...
+2025-07-21 20:17:56,638 - INFO - Radical cleaning results:
+2025-07-21 20:17:56,640 - INFO -   Original unique radicals: 207
+2025-07-21 20:17:56,642 - INFO -   Cleaned unique radicals: 203
+2025-07-21 20:17:56,644 - INFO -   Null/invalid radicals: 0
+2025-07-21 20:17:56,656 - INFO - All hanzi entries validated as Chinese characters
+2025-07-21 20:17:56,659 - INFO - ========================================
+2025-07-21 20:17:56,661 - INFO - DATASET STATISTICS
+2025-07-21 20:17:56,664 - INFO - ========================================
+2025-07-21 20:17:56,666 - INFO - Total characters: 3520
+2025-07-21 20:17:56,668 - INFO - Unique radicals: 203
+2025-07-21 20:17:56,673 - INFO - Chinese frequency (Zipf) - Mean: 1.03, Std: 1.14, Range: [-1.07, 4.58]
+2025-07-21 20:17:56,676 - INFO - Radical family sizes - Min: 1, Max: 90, Median: 7.0
+2025-07-21 20:17:56,682 - INFO - Large radical families (≥10 chars): 81
+2025-07-21 20:17:56,685 - WARNING - zipf_en: 100.0% missing
+2025-07-21 20:17:56,687 - WARNING - concreteness_en: 100.0% missing
+2025-07-21 20:17:56,690 - INFO - Verifying embedding model accessibility...
+2025-07-21 20:17:56,691 - INFO - ✓ distiluse: distiluse-base-multilingual-cased-v2 - accessible
+2025-07-21 20:17:56,692 - INFO - ✓ mpnet: paraphrase-multilingual-mpnet-base-v2 - accessible
+2025-07-21 20:17:56,693 - INFO - Environment initialization complete
+2025-07-21 20:17:56,695 - INFO - Ready for semantic geometry analysis
+2025-07-21 20:17:56,821 - INFO - ============================================================
+2025-07-21 20:17:56,822 - INFO - COMPREHENSIVE EMBEDDING COMPUTATION
+2025-07-21 20:17:56,824 - INFO - ============================================================
+2025-07-21 20:17:56,826 - INFO - Using CPU for computation
+2025-07-21 20:17:56,828 - INFO - EmbeddingProcessor initialized on device: cpu
+2025-07-21 20:17:56,832 - INFO - Input prepared:
+2025-07-21 20:17:56,833 - INFO -   Chinese characters: 3520
+2025-07-21 20:17:56,834 - INFO -   English translations: 3520
+2025-07-21 20:17:56,837 - INFO -   Total texts: 7040
+2025-07-21 20:17:56,838 - INFO - 
+🤖 Processing model: distiluse
+2025-07-21 20:17:56,840 - INFO - ----------------------------------------
+2025-07-21 20:17:56,841 - INFO - Loading model: distiluse-base-multilingual-cased-v2
+2025-07-21 20:17:56,853 - INFO - Load pretrained SentenceTransformer: distiluse-base-multilingual-cased-v2
+2025-07-21 20:18:02,892 - INFO - Model validation passed: 512D embeddings
+2025-07-21 20:18:02,894 - INFO - ✓ Model distiluse loaded successfully
+2025-07-21 20:18:02,897 - INFO - Model loading - distiluse completed:
+2025-07-21 20:18:02,899 - INFO -   Time: 6.05s
+2025-07-21 20:18:02,900 - INFO -   Memory delta: +591.9 MB
+2025-07-21 20:18:02,902 - INFO - Computing embeddings for 7040 texts using distiluse
+2025-07-21 20:19:13,816 - INFO - Embedding computation - distiluse completed:
+2025-07-21 20:19:13,817 - INFO -   Time: 70.91s
+2025-07-21 20:19:13,819 - INFO -   Memory delta: +55.1 MB
+2025-07-21 20:19:13,961 - INFO - Mean pairwise similarity (sample): 0.803
+2025-07-21 20:19:13,963 - INFO - Embedding validation passed for distiluse
+2025-07-21 20:19:13,993 - INFO - Computed (7040, 512) embeddings
+2025-07-21 20:19:13,995 - INFO - Mean embedding norm: 0.742 ± 0.200
+2025-07-21 20:19:14,001 - INFO - 
+🤖 Processing model: mpnet
+2025-07-21 20:19:14,002 - INFO - ----------------------------------------
+2025-07-21 20:19:14,005 - INFO - Loading model: paraphrase-multilingual-mpnet-base-v2
+2025-07-21 20:19:14,022 - INFO - Load pretrained SentenceTransformer: paraphrase-multilingual-mpnet-base-v2
+2025-07-21 20:19:17,755 - INFO - Model validation passed: 768D embeddings
+2025-07-21 20:19:17,757 - INFO - ✓ Model mpnet loaded successfully
+2025-07-21 20:19:17,758 - INFO - Model loading - mpnet completed:
+2025-07-21 20:19:17,761 - INFO -   Time: 3.75s
+2025-07-21 20:19:17,763 - INFO -   Memory delta: +1250.4 MB
+2025-07-21 20:19:17,765 - INFO - Computing embeddings for 7040 texts using mpnet
+2025-07-21 20:21:44,989 - INFO - Embedding computation - mpnet completed:
+2025-07-21 20:21:44,991 - INFO -   Time: 147.22s
+2025-07-21 20:21:44,992 - INFO -   Memory delta: +54.4 MB
+2025-07-21 20:21:45,051 - INFO - Mean pairwise similarity (sample): 0.801
+2025-07-21 20:21:45,054 - INFO - Embedding validation passed for mpnet
+2025-07-21 20:21:45,087 - INFO - Computed (7040, 768) embeddings
+2025-07-21 20:21:45,089 - INFO - Mean embedding norm: 2.310 ± 0.670
+2025-07-21 20:21:45,092 - INFO - 
+🔍 CROSS-MODEL VALIDATION
+2025-07-21 20:21:45,094 - INFO - ------------------------------
+2025-07-21 20:22:27,860 - INFO - distiluse vs mpnet:
+2025-07-21 20:22:27,861 - INFO -   Chinese representational similarity: 0.309
+2025-07-21 20:22:27,863 - INFO -   English representational similarity: 0.531
+2025-07-21 20:22:28,714 - INFO - Saved distiluse embeddings to embeddings_cache\embeddings_distiluse_2025-07-21T20-17-56.604687.npz
+2025-07-21 20:22:29,991 - INFO - Saved mpnet embeddings to embeddings_cache\embeddings_mpnet_2025-07-21T20-17-56.604687.npz
+2025-07-21 20:22:29,993 - INFO - 
+✅ Embedding computation completed successfully
+2025-07-21 20:22:29,995 - INFO - 
+📊 EMBEDDING QUALITY ASSESSMENT
+2025-07-21 20:22:29,997 - INFO - ========================================
+2025-07-21 20:22:29,998 - INFO - 
+Assessing distiluse...
+2025-07-21 20:22:31,314 - INFO -   Mean norm: CN=0.577, EN=0.907
+2025-07-21 20:22:31,316 - INFO -   Mean cosine similarity: CN=0.738, EN=0.362
+2025-07-21 20:22:31,317 - INFO -   Cross-lingual similarity: 0.583
+2025-07-21 20:22:31,320 - INFO -   Effective rank: CN=273.4, EN=340.8
+2025-07-21 20:22:31,323 - INFO - 
+Assessing mpnet...
+2025-07-21 20:22:33,689 - INFO -   Mean norm: CN=1.703, EN=2.917
+2025-07-21 20:22:33,690 - INFO -   Mean cosine similarity: CN=0.714, EN=0.230
+2025-07-21 20:22:33,691 - INFO -   Cross-lingual similarity: 0.559
+2025-07-21 20:22:33,693 - INFO -   Effective rank: CN=253.2, EN=399.8
+2025-07-21 20:22:34,392 - INFO - SemanticDensityAnalyzer initialized
+2025-07-21 20:22:34,393 - INFO - Analysis radii: 17 values from 0.10 to 0.90
+2025-07-21 20:22:34,395 - INFO - 
+🌍 CROSS-LINGUISTIC SEMANTIC DENSITY ANALYSIS
+2025-07-21 20:22:34,397 - INFO - ============================================================
+2025-07-21 20:22:34,399 - INFO - 
+📊 Analyzing model: distiluse
+2025-07-21 20:22:34,400 - INFO - Computing multiscale density for distiluse_chinese
+2025-07-21 20:22:34,404 - INFO -   Input shape: (3520, 512)
+2025-07-21 20:22:34,406 - INFO -   Computing distance matrix...
+2025-07-21 20:22:35,421 - INFO -   Density computation completed: (17, 3520)
+2025-07-21 20:22:35,444 - INFO - Computing multiscale density for distiluse_english
+2025-07-21 20:22:35,447 - INFO -   Input shape: (3520, 512)
+2025-07-21 20:22:35,451 - INFO -   Computing distance matrix...
+2025-07-21 20:22:36,600 - INFO -   Density computation completed: (17, 3520)
+2025-07-21 20:22:36,619 - INFO -   Performing statistical analysis...
+2025-07-21 20:22:51,128 - INFO -   📈 Density Analysis Summary (distiluse):
+2025-07-21 20:22:51,129 - INFO -     Mean density ratio (CN/EN): 65.00×
+2025-07-21 20:22:51,130 - INFO -     Ratio range: 1.03× - 460.35×
+2025-07-21 20:22:51,132 - INFO -     Mean effect size (Cohen's d): 2.95
+2025-07-21 20:22:51,134 - INFO -     Significant comparisons (p<0.001): 17/17
+2025-07-21 20:22:51,137 - INFO - 
+📊 Analyzing model: mpnet
+2025-07-21 20:22:51,139 - INFO - Computing multiscale density for mpnet_chinese
+2025-07-21 20:22:51,141 - INFO -   Input shape: (3520, 768)
+2025-07-21 20:22:51,143 - INFO -   Computing distance matrix...
+2025-07-21 20:22:52,102 - INFO -   Density computation completed: (17, 3520)
+2025-07-21 20:22:52,122 - INFO - Computing multiscale density for mpnet_english
+2025-07-21 20:22:52,124 - INFO -   Input shape: (3520, 768)
+2025-07-21 20:22:52,125 - INFO -   Computing distance matrix...
+2025-07-21 20:22:53,231 - INFO -   Density computation completed: (17, 3520)
+2025-07-21 20:22:53,248 - INFO -   Performing statistical analysis...
+2025-07-21 20:23:07,959 - INFO -   📈 Density Analysis Summary (mpnet):
+2025-07-21 20:23:07,962 - INFO -     Mean density ratio (CN/EN): 288.61×
+2025-07-21 20:23:07,963 - INFO -     Ratio range: 1.11× - 1041.28×
+2025-07-21 20:23:07,965 - INFO -     Mean effect size (Cohen's d): 4.94
+2025-07-21 20:23:07,967 - INFO -     Significant comparisons (p<0.001): 17/17
+2025-07-21 20:23:07,968 - INFO - Creating Figure 1: Semantic Density Profiles
+2025-07-21 20:23:14,586 - INFO - ✅ Figure 1 created and saved
+2025-07-21 20:23:14,601 - INFO - Creating Table 2: Density Statistics
+2025-07-21 20:23:15,420 - INFO - Radical family statistics:
+2025-07-21 20:23:15,423 - INFO -   Total families found: 203
+2025-07-21 20:23:15,425 - INFO -   Valid families (≥2 chars): 185
+2025-07-21 20:23:15,427 - INFO -   Family size range: 2 - 90
+2025-07-21 20:23:15,428 - INFO -   Mean family size: 18.9
+2025-07-21 20:23:15,430 - INFO - RadicalCohesionAnalyzer initialized
+2025-07-21 20:23:15,432 - INFO - Valid radical families: 185
+2025-07-21 20:23:15,433 - INFO - Total characters in analysis: 3502
+2025-07-21 20:23:15,434 - INFO - 
+🎯 COMPREHENSIVE RADICAL COHESION ANALYSIS
+2025-07-21 20:23:15,436 - INFO - ============================================================
+2025-07-21 20:23:15,438 - INFO - 
+📊 Analyzing model: distiluse
+2025-07-21 20:23:15,439 - INFO - Computing radical cohesion for distiluse
+2025-07-21 20:23:15,775 - INFO - Cohesion computed for 185 radical families
+2025-07-21 20:23:15,784 - INFO -   📈 Cohesion Summary (distiluse):
+2025-07-21 20:23:15,785 - INFO -     Families analyzed: 185
+2025-07-21 20:23:15,787 - INFO -     Mean cohesion: 4.284 ± 1.487
+2025-07-21 20:23:15,790 - INFO -     Median cohesion: 3.988
+2025-07-21 20:23:15,792 - INFO -     Range: 1.766 - 13.893
+2025-07-21 20:23:15,793 - INFO -     Coefficient of variation: 0.347
+2025-07-21 20:23:15,795 - INFO - 
+📊 Analyzing model: mpnet
+2025-07-21 20:23:15,796 - INFO - Computing radical cohesion for mpnet
+2025-07-21 20:23:16,176 - INFO - Cohesion computed for 185 radical families
+2025-07-21 20:23:16,184 - INFO -   📈 Cohesion Summary (mpnet):
+2025-07-21 20:23:16,186 - INFO -     Families analyzed: 185
+2025-07-21 20:23:16,188 - INFO -     Mean cohesion: 4.664 ± 2.845
+2025-07-21 20:23:16,191 - INFO -     Median cohesion: 4.185
+2025-07-21 20:23:16,192 - INFO -     Range: 1.768 - 27.477
+2025-07-21 20:23:16,193 - INFO -     Coefficient of variation: 0.610
+2025-07-21 20:23:16,194 - INFO - 
+🔍 Cross-Model Consistency Analysis
+2025-07-21 20:23:16,196 - INFO - Common radicals across models: 185
+2025-07-21 20:23:16,203 - INFO -   distiluse vs mpnet:
+2025-07-21 20:23:16,205 - INFO -     Pearson r: 0.312 (p=0.000)
+2025-07-21 20:23:16,206 - INFO -     Spearman ρ: 0.558 (p=0.000)
+2025-07-21 20:23:16,208 - INFO - 
+🏆 TOP 20 COHESIVE RADICAL FAMILIES (DISTILUSE)
+2025-07-21 20:23:16,209 - INFO - ======================================================================
+2025-07-21 20:23:16,215 - INFO - 
+🏅 #1 - Radical 176 (Unknown meaning)
+2025-07-21 20:23:16,216 - INFO -    📊 Cohesion: 13.893 | Characters: 2 | Distance: 0.072
+2025-07-21 20:23:16,217 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,218 - INFO -    📈 Frequency: 1.33 (range: -0.5-3.2)
+2025-07-21 20:23:16,219 - INFO -    🔤 Characters: 面靥
+2025-07-21 20:23:16,221 - INFO -    🌍 Meanings: flour, dimple
+2025-07-21 20:23:16,223 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,230 - INFO - 
+🏅 #2 - Radical 56 (Unknown meaning)
+2025-07-21 20:23:16,231 - INFO -    📊 Cohesion: 11.746 | Characters: 3 | Distance: 0.085
+2025-07-21 20:23:16,232 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,235 - INFO -    📈 Frequency: 0.40 (range: -0.9-2.4)
+2025-07-21 20:23:16,237 - INFO -    🔤 Characters: 弋式弑
+2025-07-21 20:23:16,239 - INFO -    🌍 Meanings: to shoot, type, murder a superior
+2025-07-21 20:23:16,241 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,248 - INFO - 
+🏅 #3 - Radical 81 (Unknown meaning)
+2025-07-21 20:23:16,249 - INFO -    📊 Cohesion: 10.461 | Characters: 5 | Distance: 0.096
+2025-07-21 20:23:16,250 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,252 - INFO -    📈 Frequency: 0.98 (range: -1.0-3.0)
+2025-07-21 20:23:16,253 - INFO -    🔤 Characters: 比毕毖毗毙
+2025-07-21 20:23:16,257 - INFO -    🌍 Meanings: associate with, the whole of, careful, adjoin, die violently
+2025-07-21 20:23:16,258 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,263 - INFO - 
+🏅 #4 - Radical 127 (Unknown meaning)
+2025-07-21 20:23:16,264 - INFO -    📊 Cohesion: 9.107 | Characters: 5 | Distance: 0.110
+2025-07-21 20:23:16,265 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,267 - INFO -    📈 Frequency: 0.09 (range: -0.7-1.2)
+2025-07-21 20:23:16,268 - INFO -    🔤 Characters: 耕耗耘耙耦
+2025-07-21 20:23:16,269 - INFO -    🌍 Meanings: to plow, mouse, to weed, a rake, pair
+2025-07-21 20:23:16,270 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,276 - INFO - 
+🏅 #5 - Radical 211 (Unknown meaning)
+2025-07-21 20:23:16,278 - INFO -    📊 Cohesion: 7.795 | Characters: 10 | Distance: 0.128
+2025-07-21 20:23:16,292 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,298 - INFO -    📈 Frequency: -0.08 (range: -1.1-1.5)
+2025-07-21 20:23:16,300 - INFO -    🔤 Characters: 齿龃龄龅龇龈龉龊龋龌
+2025-07-21 20:23:16,303 - INFO -    🌍 Meanings: tooth, irregular, age, projecting teeth, projecting teeth...
+2025-07-21 20:23:16,306 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.20)
+2025-07-21 20:23:16,317 - INFO - 
+🏅 #6 - Radical 133 (Unknown meaning)
+2025-07-21 20:23:16,318 - INFO -    📊 Cohesion: 7.289 | Characters: 3 | Distance: 0.137
+2025-07-21 20:23:16,320 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,325 - INFO -    📈 Frequency: 1.45 (range: -0.4-2.6)
+2025-07-21 20:23:16,327 - INFO -    🔤 Characters: 至致臻
+2025-07-21 20:23:16,331 - INFO -    🌍 Meanings: arrive, to send, to reach
+2025-07-21 20:23:16,333 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,343 - INFO - 
+🏅 #7 - Radical 198 (Unknown meaning)
+2025-07-21 20:23:16,353 - INFO -    📊 Cohesion: 7.272 | Characters: 6 | Distance: 0.138
+2025-07-21 20:23:16,356 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,357 - INFO -    📈 Frequency: -0.20 (range: -1.0-1.2)
+2025-07-21 20:23:16,359 - INFO -    🔤 Characters: 鹿麂麒麓麝麟
+2025-07-21 20:23:16,362 - INFO -    🌍 Meanings: deer, Moschus chinensis, mythical unicorn, foot of a hill, musk deer...
+2025-07-21 20:23:16,363 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,377 - INFO - 
+🏅 #8 - Radical 88 (Unknown meaning)
+2025-07-21 20:23:16,381 - INFO -    📊 Cohesion: 7.179 | Characters: 4 | Distance: 0.139
+2025-07-21 20:23:16,383 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,384 - INFO -    📈 Frequency: 2.28 (range: 1.4-3.1)
+2025-07-21 20:23:16,387 - INFO -    🔤 Characters: 父爷爸爹
+2025-07-21 20:23:16,391 - INFO -    🌍 Meanings: father, grandpa, father, dad
+2025-07-21 20:23:16,393 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.25)
+2025-07-21 20:23:16,401 - INFO - 
+🏅 #9 - Radical 25 (Unknown meaning)
+2025-07-21 20:23:16,402 - INFO -    📊 Cohesion: 6.882 | Characters: 6 | Distance: 0.145
+2025-07-21 20:23:16,409 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,412 - INFO -    📈 Frequency: 1.34 (range: -0.1-2.6)
+2025-07-21 20:23:16,413 - INFO -    🔤 Characters: 卜占卡卤卦卧
+2025-07-21 20:23:16,415 - INFO -    🌍 Meanings: to divine, to occupy, customs station, crass, divinatory trigram...
+2025-07-21 20:23:16,417 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,423 - INFO - 
+🏅 #10 - Radical 195 (Unknown meaning)
+2025-07-21 20:23:16,424 - INFO -    📊 Cohesion: 6.726 | Characters: 32 | Distance: 0.149
+2025-07-21 20:23:16,426 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,429 - INFO -    📈 Frequency: 0.07 (range: -1.1-2.2)
+2025-07-21 20:23:16,431 - INFO -    🔤 Characters: 鱼鱿鲁鲈鲍鲔鲛鲜鲟鲡... (+22 more)
+2025-07-21 20:23:16,438 - INFO -    🌍 Meanings: fish, cuttlefish, crass, common perch, abalone...
+2025-07-21 20:23:16,449 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.06)
+2025-07-21 20:23:16,458 - INFO - 
+🏅 #11 - Radical 165 (Unknown meaning)
+2025-07-21 20:23:16,460 - INFO -    📊 Cohesion: 6.500 | Characters: 3 | Distance: 0.154
+2025-07-21 20:23:16,461 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,464 - INFO -    📈 Frequency: 1.18 (range: -0.6-2.3)
+2025-07-21 20:23:16,465 - INFO -    🔤 Characters: 采釉释
+2025-07-21 20:23:16,467 - INFO -    🌍 Meanings: allotment to a feudal noble, glaze (of porcelain), explain
+2025-07-21 20:23:16,469 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,475 - INFO - 
+🏅 #12 - Radical 67 (Unknown meaning)
+2025-07-21 20:23:16,477 - INFO -    📊 Cohesion: 6.255 | Characters: 5 | Distance: 0.160
+2025-07-21 20:23:16,478 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,480 - INFO -    📈 Frequency: 0.59 (range: -0.6-2.5)
+2025-07-21 20:23:16,481 - INFO -    🔤 Characters: 文斋斌斑斓
+2025-07-21 20:23:16,484 - INFO -    🌍 Meanings: language, a fast, ornamental, variegated, variegated
+2025-07-21 20:23:16,485 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.20)
+2025-07-21 20:23:16,492 - INFO - 
+🏅 #13 - Radical 186 (Unknown meaning)
+2025-07-21 20:23:16,494 - INFO -    📊 Cohesion: 6.201 | Characters: 3 | Distance: 0.161
+2025-07-21 20:23:16,496 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,498 - INFO -    📈 Frequency: 0.73 (range: -0.7-2.1)
+2025-07-21 20:23:16,500 - INFO -    🔤 Characters: 香馥馨
+2025-07-21 20:23:16,503 - INFO -    🌍 Meanings: fragrant, fragrance, scent, aroma, fragrant
+2025-07-21 20:23:16,507 - INFO -    🧠 Coherence: Moderate coherence - related concepts (score: 0.33)
+2025-07-21 20:23:16,514 - INFO - 
+🏅 #14 - Radical 202 (Unknown meaning)
+2025-07-21 20:23:16,515 - INFO -    📊 Cohesion: 6.081 | Characters: 2 | Distance: 0.164
+2025-07-21 20:23:16,517 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,519 - INFO -    📈 Frequency: -0.04 (range: -0.7-0.6)
+2025-07-21 20:23:16,520 - INFO -    🔤 Characters: 黍黏
+2025-07-21 20:23:16,523 - INFO -    🌍 Meanings: broomcorn millet, sticky
+2025-07-21 20:23:16,525 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,531 - INFO - 
+🏅 #15 - 丨 (vertical line)
+2025-07-21 20:23:16,532 - INFO -    📊 Cohesion: 6.006 | Characters: 5 | Distance: 0.167
+2025-07-21 20:23:16,533 - INFO -    🏷️  Category: strokes
+2025-07-21 20:23:16,535 - INFO -    📈 Frequency: 1.76 (range: 1.0-3.2)
+2025-07-21 20:23:16,537 - INFO -    🔤 Characters: 丫中丰串临
+2025-07-21 20:23:16,540 - INFO -    🌍 Meanings: slave girl, hit (the mark), buxom, to string together, to face
+2025-07-21 20:23:16,543 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,547 - INFO - 
+🏅 #16 - Radical 187 (Unknown meaning)
+2025-07-21 20:23:16,548 - INFO -    📊 Cohesion: 5.794 | Characters: 32 | Distance: 0.173
+2025-07-21 20:23:16,550 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,551 - INFO -    📈 Frequency: 0.67 (range: -1.1-2.9)
+2025-07-21 20:23:16,552 - INFO -    🔤 Characters: 马驭驮驯驰驱驳驴驶驷... (+22 more)
+2025-07-21 20:23:16,553 - INFO -    🌍 Meanings: horse, manage, carry on back, attain gradually, run fast...
+2025-07-21 20:23:16,555 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.03)
+2025-07-21 20:23:16,561 - INFO - 
+🏅 #17 - Radical 129 (Unknown meaning)
+2025-07-21 20:23:16,562 - INFO -    📊 Cohesion: 5.749 | Characters: 4 | Distance: 0.174
+2025-07-21 20:23:16,564 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,566 - INFO -    📈 Frequency: 0.41 (range: -1.0-1.3)
+2025-07-21 20:23:16,568 - INFO -    🔤 Characters: 肃肄肆肇
+2025-07-21 20:23:16,569 - INFO -    🌍 Meanings: Gansu, descendants, four (fraud-proof), at first
+2025-07-21 20:23:16,571 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,577 - INFO - 
+🏅 #18 - Radical 190 (Unknown meaning)
+2025-07-21 20:23:16,578 - INFO -    📊 Cohesion: 5.728 | Characters: 7 | Distance: 0.175
+2025-07-21 20:23:16,581 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,582 - INFO -    📈 Frequency: -0.39 (range: -1.1-0.8)
+2025-07-21 20:23:16,584 - INFO -    🔤 Characters: 髦髭髯髻鬃鬓鬣
+2025-07-21 20:23:16,585 - INFO -    🌍 Meanings: bang (hair), mustache, beard, hair rolled up in a bun, topknot, bristles...
+2025-07-21 20:23:16,589 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.14)
+2025-07-21 20:23:16,596 - INFO - 
+🏅 #19 - Radical 97 (Unknown meaning)
+2025-07-21 20:23:16,598 - INFO -    📊 Cohesion: 5.634 | Characters: 4 | Distance: 0.177
+2025-07-21 20:23:16,601 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,602 - INFO -    📈 Frequency: 0.40 (range: -0.9-1.8)
+2025-07-21 20:23:16,605 - INFO -    🔤 Characters: 瓜瓢瓣瓤
+2025-07-21 20:23:16,606 - INFO -    🌍 Meanings: melon, dipper, petal, pulp of fruit
+2025-07-21 20:23:16,608 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,614 - INFO - 
+🏅 #20 - 山 (mountain, hill)
+2025-07-21 20:23:16,616 - INFO -    📊 Cohesion: 5.614 | Characters: 41 | Distance: 0.178
+2025-07-21 20:23:16,617 - INFO -    🏷️  Category: nature
+2025-07-21 20:23:16,618 - INFO -    📈 Frequency: 0.42 (range: -0.9-2.4)
+2025-07-21 20:23:16,619 - INFO -    🔤 Characters: 山屹屿岁岂岌岐岑岔岖... (+31 more)
+2025-07-21 20:23:16,621 - INFO -    🌍 Meanings: mountain, high and steep, islet, year, how can it be that...
+2025-07-21 20:23:16,624 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.15)
+2025-07-21 20:23:16,626 - INFO - 
+🏆 TOP 20 COHESIVE RADICAL FAMILIES (MPNET)
+2025-07-21 20:23:16,628 - INFO - ======================================================================
+2025-07-21 20:23:16,633 - INFO - 
+🏅 #1 - Radical 125 (Unknown meaning)
+2025-07-21 20:23:16,635 - INFO -    📊 Cohesion: 27.477 | Characters: 2 | Distance: 0.036
+2025-07-21 20:23:16,636 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,639 - INFO -    📈 Frequency: 0.71 (range: -1.0-2.4)
+2025-07-21 20:23:16,640 - INFO -    🔤 Characters: 考耆
+2025-07-21 20:23:16,642 - INFO -    🌍 Meanings: to check, man of sixty or seventy
+2025-07-21 20:23:16,643 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,648 - INFO - 
+🏅 #2 - Radical 133 (Unknown meaning)
+2025-07-21 20:23:16,649 - INFO -    📊 Cohesion: 23.816 | Characters: 3 | Distance: 0.042
+2025-07-21 20:23:16,650 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,651 - INFO -    📈 Frequency: 1.45 (range: -0.4-2.6)
+2025-07-21 20:23:16,653 - INFO -    🔤 Characters: 至致臻
+2025-07-21 20:23:16,656 - INFO -    🌍 Meanings: arrive, to send, to reach
+2025-07-21 20:23:16,658 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,663 - INFO - 
+🏅 #3 - Radical 129 (Unknown meaning)
+2025-07-21 20:23:16,664 - INFO -    📊 Cohesion: 18.742 | Characters: 4 | Distance: 0.053
+2025-07-21 20:23:16,665 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,669 - INFO -    📈 Frequency: 0.41 (range: -1.0-1.3)
+2025-07-21 20:23:16,670 - INFO -    🔤 Characters: 肃肄肆肇
+2025-07-21 20:23:16,672 - INFO -    🌍 Meanings: Gansu, descendants, four (fraud-proof), at first
+2025-07-21 20:23:16,674 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,678 - INFO - 
+🏅 #4 - Radical 208 (Unknown meaning)
+2025-07-21 20:23:16,680 - INFO -    📊 Cohesion: 10.764 | Characters: 3 | Distance: 0.093
+2025-07-21 20:23:16,681 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,682 - INFO -    📈 Frequency: 0.76 (range: 0.2-1.7)
+2025-07-21 20:23:16,684 - INFO -    🔤 Characters: 鼠鼬鼹
+2025-07-21 20:23:16,686 - INFO -    🌍 Meanings: rat, weasel, mustela itatis, mole
+2025-07-21 20:23:16,687 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,693 - INFO - 
+🏅 #5 - Radical 186 (Unknown meaning)
+2025-07-21 20:23:16,695 - INFO -    📊 Cohesion: 9.816 | Characters: 3 | Distance: 0.102
+2025-07-21 20:23:16,696 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,697 - INFO -    📈 Frequency: 0.73 (range: -0.7-2.1)
+2025-07-21 20:23:16,699 - INFO -    🔤 Characters: 香馥馨
+2025-07-21 20:23:16,701 - INFO -    🌍 Meanings: fragrant, fragrance, scent, aroma, fragrant
+2025-07-21 20:23:16,702 - INFO -    🧠 Coherence: Moderate coherence - related concepts (score: 0.33)
+2025-07-21 20:23:16,708 - INFO - 
+🏅 #6 - 見 (see, look)
+2025-07-21 20:23:16,710 - INFO -    📊 Cohesion: 9.173 | Characters: 9 | Distance: 0.109
+2025-07-21 20:23:16,711 - INFO -    🏷️  Category: perception
+2025-07-21 20:23:16,711 - INFO -    📈 Frequency: 1.37 (range: -0.5-3.3)
+2025-07-21 20:23:16,714 - INFO -    🔤 Characters: 见观规觅览觉觊觎觑
+2025-07-21 20:23:16,715 - INFO -    🌍 Meanings: appear, Taoist monastery, compass, seek, look over...
+2025-07-21 20:23:16,716 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,721 - INFO - 
+🏅 #7 - Radical 176 (Unknown meaning)
+2025-07-21 20:23:16,723 - INFO -    📊 Cohesion: 7.745 | Characters: 2 | Distance: 0.129
+2025-07-21 20:23:16,725 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,726 - INFO -    📈 Frequency: 1.33 (range: -0.5-3.2)
+2025-07-21 20:23:16,727 - INFO -    🔤 Characters: 面靥
+2025-07-21 20:23:16,729 - INFO -    🌍 Meanings: flour, dimple
+2025-07-21 20:23:16,730 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,735 - INFO - 
+🏅 #8 - Radical 56 (Unknown meaning)
+2025-07-21 20:23:16,739 - INFO -    📊 Cohesion: 7.613 | Characters: 3 | Distance: 0.131
+2025-07-21 20:23:16,741 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,742 - INFO -    📈 Frequency: 0.40 (range: -0.9-2.4)
+2025-07-21 20:23:16,744 - INFO -    🔤 Characters: 弋式弑
+2025-07-21 20:23:16,745 - INFO -    🌍 Meanings: to shoot, type, murder a superior
+2025-07-21 20:23:16,747 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,751 - INFO - 
+🏅 #9 - Radical 35 (Unknown meaning)
+2025-07-21 20:23:16,752 - INFO -    📊 Cohesion: 7.586 | Characters: 2 | Distance: 0.132
+2025-07-21 20:23:16,754 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,757 - INFO -    📈 Frequency: 2.17 (range: 1.9-2.4)
+2025-07-21 20:23:16,775 - INFO -    🔤 Characters: 复夏
+2025-07-21 20:23:16,794 - INFO -    🌍 Meanings: again, summer
+2025-07-21 20:23:16,795 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,802 - INFO - 
+🏅 #10 - Radical 34 (Unknown meaning)
+2025-07-21 20:23:16,803 - INFO -    📊 Cohesion: 7.549 | Characters: 2 | Distance: 0.132
+2025-07-21 20:23:16,806 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,810 - INFO -    📈 Frequency: 2.78 (range: 2.8-2.8)
+2025-07-21 20:23:16,812 - INFO -    🔤 Characters: 处备
+2025-07-21 20:23:16,814 - INFO -    🌍 Meanings: a place, to prepare
+2025-07-21 20:23:16,816 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,825 - INFO - 
+🏅 #11 - 丨 (vertical line)
+2025-07-21 20:23:16,834 - INFO -    📊 Cohesion: 7.513 | Characters: 5 | Distance: 0.133
+2025-07-21 20:23:16,835 - INFO -    🏷️  Category: strokes
+2025-07-21 20:23:16,838 - INFO -    📈 Frequency: 1.76 (range: 1.0-3.2)
+2025-07-21 20:23:16,842 - INFO -    🔤 Characters: 丫中丰串临
+2025-07-21 20:23:16,844 - INFO -    🌍 Meanings: slave girl, hit (the mark), buxom, to string together, to face
+2025-07-21 20:23:16,846 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,862 - INFO - 
+🏅 #12 - Radical 117 (Unknown meaning)
+2025-07-21 20:23:16,863 - INFO -    📊 Cohesion: 7.409 | Characters: 6 | Distance: 0.135
+2025-07-21 20:23:16,865 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,867 - INFO -    📈 Frequency: 1.45 (range: -0.8-2.5)
+2025-07-21 20:23:16,875 - INFO -    🔤 Characters: 立站竞竣竭端
+2025-07-21 20:23:16,880 - INFO -    🌍 Meanings: set up, station, to compete, complete, exhaust...
+2025-07-21 20:23:16,886 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,896 - INFO - 
+🏅 #13 - Radical 68 (Unknown meaning)
+2025-07-21 20:23:16,908 - INFO -    📊 Cohesion: 7.199 | Characters: 5 | Distance: 0.139
+2025-07-21 20:23:16,910 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,911 - INFO -    📈 Frequency: 1.02 (range: -0.4-2.3)
+2025-07-21 20:23:16,913 - INFO -    🔤 Characters: 斗料斜斟斡
+2025-07-21 20:23:16,915 - INFO -    🌍 Meanings: fight, material, slanting, pour, to turn
+2025-07-21 20:23:16,916 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,920 - INFO - 
+🏅 #14 - Radical 95 (Unknown meaning)
+2025-07-21 20:23:16,923 - INFO -    📊 Cohesion: 7.105 | Characters: 3 | Distance: 0.141
+2025-07-21 20:23:16,925 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,928 - INFO -    📈 Frequency: 0.67 (range: -0.4-1.8)
+2025-07-21 20:23:16,931 - INFO -    🔤 Characters: 玄玆率
+2025-07-21 20:23:16,934 - INFO -    🌍 Meanings: black, now, here, to lead
+2025-07-21 20:23:16,936 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,946 - INFO - 
+🏅 #15 - Radical 43 (Unknown meaning)
+2025-07-21 20:23:16,947 - INFO -    📊 Cohesion: 7.043 | Characters: 4 | Distance: 0.142
+2025-07-21 20:23:16,950 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,953 - INFO -    📈 Frequency: 2.11 (range: 1.4-3.8)
+2025-07-21 20:23:16,956 - INFO -    🔤 Characters: 尤尬就尴
+2025-07-21 20:23:16,959 - INFO -    🌍 Meanings: outstanding, in an embarrassing situation, at once, embarrassed
+2025-07-21 20:23:16,961 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,967 - INFO - 
+🏅 #16 - Radical 107 (Unknown meaning)
+2025-07-21 20:23:16,969 - INFO -    📊 Cohesion: 6.894 | Characters: 2 | Distance: 0.145
+2025-07-21 20:23:16,971 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,974 - INFO -    📈 Frequency: 1.63 (range: 1.0-2.3)
+2025-07-21 20:23:16,976 - INFO -    🔤 Characters: 皮皱
+2025-07-21 20:23:16,977 - INFO -    🌍 Meanings: leather, to wrinkle
+2025-07-21 20:23:16,979 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:16,988 - INFO - 
+🏅 #17 - Radical 67 (Unknown meaning)
+2025-07-21 20:23:16,991 - INFO -    📊 Cohesion: 6.765 | Characters: 5 | Distance: 0.148
+2025-07-21 20:23:16,992 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:16,995 - INFO -    📈 Frequency: 0.59 (range: -0.6-2.5)
+2025-07-21 20:23:16,996 - INFO -    🔤 Characters: 文斋斌斑斓
+2025-07-21 20:23:16,998 - INFO -    🌍 Meanings: language, a fast, ornamental, variegated, variegated
+2025-07-21 20:23:17,000 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.20)
+2025-07-21 20:23:17,008 - INFO - 
+🏅 #18 - Radical 165 (Unknown meaning)
+2025-07-21 20:23:17,009 - INFO -    📊 Cohesion: 6.642 | Characters: 3 | Distance: 0.151
+2025-07-21 20:23:17,011 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:17,012 - INFO -    📈 Frequency: 1.18 (range: -0.6-2.3)
+2025-07-21 20:23:17,014 - INFO -    🔤 Characters: 采釉释
+2025-07-21 20:23:17,015 - INFO -    🌍 Meanings: allotment to a feudal noble, glaze (of porcelain), explain
+2025-07-21 20:23:17,016 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:17,021 - INFO - 
+🏅 #19 - Radical 37 (Unknown meaning)
+2025-07-21 20:23:17,023 - INFO -    📊 Cohesion: 6.563 | Characters: 28 | Distance: 0.152
+2025-07-21 20:23:17,025 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:17,026 - INFO -    📈 Frequency: 1.71 (range: 0.0-3.5)
+2025-07-21 20:23:17,028 - INFO -    🔤 Characters: 大天太夫夭央失头夷夸... (+18 more)
+2025-07-21 20:23:17,029 - INFO -    🌍 Meanings: doctor, day, highest, husband, tender...
+2025-07-21 20:23:17,030 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:17,036 - INFO - 
+🏅 #20 - Radical 54 (Unknown meaning)
+2025-07-21 20:23:17,037 - INFO -    📊 Cohesion: 6.536 | Characters: 3 | Distance: 0.153
+2025-07-21 20:23:17,040 - INFO -    🏷️  Category: uncategorized
+2025-07-21 20:23:17,041 - INFO -    📈 Frequency: 1.69 (range: 1.2-2.3)
+2025-07-21 20:23:17,043 - INFO -    🔤 Characters: 延廷建
+2025-07-21 20:23:17,044 - INFO -    🌍 Meanings: to prolong, palace courtyard, to establish
+2025-07-21 20:23:17,046 - INFO -    🧠 Coherence: Low coherence - diverse meanings (score: 0.00)
+2025-07-21 20:23:17,047 - INFO - 
+📈 FREQUENCY EFFECTS ON RADICAL COHESION
+2025-07-21 20:23:17,048 - INFO - ==================================================
+2025-07-21 20:23:17,050 - INFO - 
+Analyzing frequency effects for distiluse
+2025-07-21 20:23:17,148 - INFO -   Correlation with frequency:
+2025-07-21 20:23:17,150 - INFO -     Pearson r: -0.355 (p=0.000)
+2025-07-21 20:23:17,152 - INFO -     Spearman ρ: -0.433 (p=0.000)
+2025-07-21 20:23:17,156 - INFO -   Cohesion by frequency:
+2025-07-21 20:23:17,158 - INFO -     Low freq: 5.010
+2025-07-21 20:23:17,161 - INFO -     Mid freq: 4.220
+2025-07-21 20:23:17,162 - INFO -     High freq: 3.672
+2025-07-21 20:23:17,164 - INFO - 
+Analyzing frequency effects for mpnet
+2025-07-21 20:23:17,262 - INFO -   Correlation with frequency:
+2025-07-21 20:23:17,263 - INFO -     Pearson r: -0.077 (p=0.297)
+2025-07-21 20:23:17,265 - INFO -     Spearman ρ: -0.071 (p=0.335)
+2025-07-21 20:23:17,266 - INFO -   Cohesion by frequency:
+2025-07-21 20:23:17,268 - INFO -     Low freq: 5.366
+2025-07-21 20:23:17,270 - INFO -     Mid freq: 4.549
+2025-07-21 20:23:17,272 - INFO -     High freq: 4.174
+2025-07-21 20:23:19,680 - INFO - RadicalShufflingExperiment initialized
+2025-07-21 20:23:19,682 - INFO - Original radical families: 185
+2025-07-21 20:23:19,683 - INFO - Characters in analysis: 3502
+2025-07-21 20:23:19,685 - INFO - 
+🔬 RADICAL-SHUFFLING CAUSAL EXPERIMENT
+2025-07-21 20:23:19,690 - INFO - ============================================================
+2025-07-21 20:23:19,691 - INFO - Testing causal relationship: orthographic structure → semantic cohesion
+2025-07-21 20:23:19,693 - INFO - Iterations per model: 5
+2025-07-21 20:23:19,695 - INFO - H0: Cohesion independent of orthographic structure
+2025-07-21 20:23:19,697 - INFO - H1: Orthographic structure causally drives cohesion
+2025-07-21 20:23:19,699 - INFO - 
+🤖 Experimenting with distiluse
+2025-07-21 20:40:10,994 - INFO - RadicalShufflingExperiment initialized
+2025-07-21 20:40:10,996 - INFO - Original radical families: 185
+2025-07-21 20:40:10,999 - INFO - Characters in analysis: 3502
+2025-07-21 20:40:11,001 - INFO - 
+🔬 RADICAL-SHUFFLING CAUSAL EXPERIMENT
+2025-07-21 20:40:11,003 - INFO - ============================================================
+2025-07-21 20:40:11,005 - INFO - Testing causal relationship: orthographic structure → semantic cohesion
+2025-07-21 20:40:11,007 - INFO - Iterations per model: 5
+2025-07-21 20:40:11,009 - INFO - 
+🤖 Experimenting with distiluse
+2025-07-21 20:40:11,012 - INFO - ✅ Original cohesion loaded: 185 families
+2025-07-21 20:40:14,571 - INFO -   📊 Experimental Results (distiluse):
+2025-07-21 20:40:14,573 - INFO -     Iterations completed: 5
+2025-07-21 20:40:14,575 - INFO -     Original cohesion: 4.284
+2025-07-21 20:40:14,577 - INFO -     Shuffled cohesion: 4.029
+2025-07-21 20:40:14,580 - INFO -     Reduction ratio: 0.940
+2025-07-21 20:40:14,582 - INFO -     Mean correlation: -0.061
+2025-07-21 20:40:14,584 - INFO -     Mean effect size: 0.218
+2025-07-21 20:40:14,586 - INFO -     Wilcoxon p-value: 3.125e-02
+2025-07-21 20:40:14,588 - INFO - 
+🤖 Experimenting with mpnet
+2025-07-21 20:40:14,590 - INFO - ✅ Original cohesion loaded: 185 families
+2025-07-21 20:40:18,196 - INFO -   📊 Experimental Results (mpnet):
+2025-07-21 20:40:18,198 - INFO -     Iterations completed: 5
+2025-07-21 20:40:18,200 - INFO -     Original cohesion: 4.664
+2025-07-21 20:40:18,203 - INFO -     Shuffled cohesion: 3.750
+2025-07-21 20:40:18,205 - INFO -     Reduction ratio: 0.804
+2025-07-21 20:40:18,207 - INFO -     Mean correlation: 0.019
+2025-07-21 20:40:18,209 - INFO -     Mean effect size: 0.441
+2025-07-21 20:40:18,211 - INFO -     Wilcoxon p-value: 3.125e-02
+2025-07-21 20:40:18,214 - INFO - 
+🎯 EXPERIMENTAL CONCLUSIONS
+2025-07-21 20:40:18,215 - INFO - ----------------------------------------
+2025-07-21 20:40:18,217 - INFO - CAUSAL EVIDENCE: WEAK
+2025-07-21 20:40:18,219 - INFO - Mean cohesion reduction: 87.2%
+2025-07-21 20:40:18,221 - INFO - Mean effect size: 0.33
+2025-07-21 20:40:18,223 - INFO - All models significant: False
+2025-07-21 20:40:18,224 - INFO - 
+CONCLUSION: Weak causal evidence: limited orthographic influence
+2025-07-21 20:41:10,624 - INFO - ✅ Verificación de dependencias completada
+2025-07-21 20:41:11,003 - INFO - Translation mappings prepared: 3520/3520 characters have valid translations
+2025-07-21 20:41:11,005 - INFO - CrossLinguisticAnalyzer initialized
+2025-07-21 20:41:11,007 - INFO - Chinese characters: 3520
+2025-07-21 20:41:11,009 - INFO - Valid translations: 3520
+2025-07-21 20:41:11,014 - INFO - 
+🌍 CROSS-LINGUISTIC STABILITY ANALYSIS
+2025-07-21 20:41:11,017 - INFO - ============================================================
+2025-07-21 20:41:11,019 - INFO - Testing universality of radical cohesion patterns across writing systems
+2025-07-21 20:41:11,021 - INFO - 
+📊 Analyzing model: distiluse
+2025-07-21 20:41:11,022 - INFO - Computing English cohesion for distiluse
+2025-07-21 20:41:11,390 - INFO - English cohesion computed for 185 radical families
+2025-07-21 20:41:11,422 - INFO -   📊 Cross-Linguistic Summary (distiluse):
+2025-07-21 20:41:11,424 - INFO -     Common radicals: 185
+2025-07-21 20:41:11,426 - INFO -     Correlation: r = 0.206 (p = 0.005)
+2025-07-21 20:41:11,431 - INFO -     Magnitude ratio (CN/EN): 2.42×
+2025-07-21 20:41:11,433 - INFO -     Effect size (Cohen's d): 2.20
+2025-07-21 20:41:11,435 - INFO -     Mean preservation ratio: 0.440
+2025-07-21 20:41:11,436 - INFO -     Preservation: High=9, Moderate=159, Low=17
+2025-07-21 20:41:11,437 - INFO - 
+📊 Analyzing model: mpnet
+2025-07-21 20:41:11,439 - INFO - Computing English cohesion for mpnet
+2025-07-21 20:41:11,869 - INFO - English cohesion computed for 185 radical families
+2025-07-21 20:41:11,891 - INFO -   📊 Cross-Linguistic Summary (mpnet):
+2025-07-21 20:41:11,893 - INFO -     Common radicals: 185
+2025-07-21 20:41:11,896 - INFO -     Correlation: r = 0.126 (p = 0.088)
+2025-07-21 20:41:11,898 - INFO -     Magnitude ratio (CN/EN): 3.23×
+2025-07-21 20:41:11,900 - INFO -     Effect size (Cohen's d): 1.59
+2025-07-21 20:41:11,902 - INFO -     Mean preservation ratio: 0.358
+2025-07-21 20:41:11,904 - INFO -     Preservation: High=3, Moderate=123, Low=59
+2025-07-21 20:41:11,906 - INFO - 
+🏷️  SEMANTIC FIELD STABILITY ANALYSIS
+2025-07-21 20:41:11,908 - INFO - --------------------------------------------------
+2025-07-21 20:41:11,910 - INFO - 
+📊 distiluse semantic field analysis:
+2025-07-21 20:41:11,912 - INFO -   Body Parts: 0.407 ± 0.047 (n=6)
+2025-07-21 20:41:11,915 - INFO -   Nature Elements: 0.438 ± 0.055 (n=8)
+2025-07-21 20:41:11,918 - INFO -   Animals: 0.420 ± 0.044 (n=4)
+2025-07-21 20:41:11,921 - INFO -   Family Relations: 0.475 ± 0.070 (n=3)
+2025-07-21 20:41:11,923 - INFO -   Communication: 0.322 ± 0.018 (n=2)
+2025-07-21 20:41:11,926 - INFO -   Objects & Tools: 0.392 ± 0.026 (n=4)
+2025-07-21 20:41:11,929 - INFO -   Materials: 0.341 ± 0.040 (n=2)
+2025-07-21 20:41:11,931 - INFO - 
+📊 mpnet semantic field analysis:
+2025-07-21 20:41:11,935 - INFO -   Body Parts: 0.338 ± 0.072 (n=6)
+2025-07-21 20:41:11,938 - INFO -   Nature Elements: 0.370 ± 0.049 (n=8)
+2025-07-21 20:41:11,940 - INFO -   Animals: 0.388 ± 0.036 (n=4)
+2025-07-21 20:41:11,942 - INFO -   Family Relations: 0.353 ± 0.040 (n=3)
+2025-07-21 20:41:11,945 - INFO -   Communication: 0.221 ± 0.067 (n=2)
+2025-07-21 20:41:11,947 - INFO -   Objects & Tools: 0.324 ± 0.030 (n=4)
+2025-07-21 20:41:11,949 - INFO -   Materials: 0.355 ± 0.080 (n=2)
+2025-07-21 20:41:11,952 - INFO - Creating Figure 5: Cross-Linguistic Stability
+2025-07-21 20:41:18,760 - INFO - ✅ Figure 5 created and saved
+2025-07-21 20:41:22,325 - INFO - Creating Table 6: Cross-Linguistic Correlations
+2025-07-21 20:44:58,692 - INFO - PublicationSummaryGenerator initialized successfully
+2025-07-21 20:44:58,694 - INFO - Creating Table 1: Dataset and Model Summary
+2025-07-21 20:44:58,705 - INFO - Creating Table 8: Complete Experimental Summary
+2025-07-21 20:44:58,712 - INFO - Generating Reviewer Response Summary
